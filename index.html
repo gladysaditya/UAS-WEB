@@ -1,10 +1,110 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>UAS Web Gladys</title>
-    </head>
-    <body>
-        <h1>Gladysss disiniii</h1>
-        <p>asiiiik</p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Mahasiswa & Usia</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            padding: 40px;
+        }
+
+        .container {
+            width: 350px;
+            margin: auto;
+            background: pink;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border: 2px solid #ecd9ff;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ac1965;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border: 1px solid #d2a8ff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #ac1965;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #641da8;
+        }
+
+        .hasil {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .hasil b {
+            color: #7a2cc9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Data Mahasiswa & Usia</h2>
+
+    <input type="text" id="nama" placeholder="Nama Mahasiswa">
+    <input type="text" id="nim" placeholder="NIM">
+    <input type="number" id="tahun" placeholder="Tahun Lahir">
+
+    <button onclick="tampilkan()">Tampilkan</button>
+
+    <div class="hasil" id="output"></div>
+</div>
+
+<script>
+function tampilkan() {
+    let nama = document.getElementById("nama").value;
+    let nim = document.getElementById("nim").value;
+    let tahun = document.getElementById("tahun").value;
+
+    if (nama === "" || nim === "" || tahun === "") {
+        alert("Semua data harus diisi!");
+        return;
+    }
+
+    let tahunSekarang = 2025;
+    let usia = tahunSekarang - tahun;
+
+    document.getElementById("output").innerHTML =
+        "<b>Nama :</b> " + nama + "<br>" +
+        "<b>NIM :</b> " + nim + "<br>" +
+        "<b>Usia :</b> " + usia + " tahun";
+}
+</script>
+</body>
+</html>
+</body>
 </html>
