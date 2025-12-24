@@ -1,125 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Saya</title>
-
-    <!-- Bootstrap 5.2.3 CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        .hero {
-            padding: 100px 0;
-        }
-        .hero img {
-            width: 180px;
-            border-radius: 50%;
-            border: 5px solid #3f15c0;
-        }
-        .portfolio-item img {
-            width: 100%;
-            border-radius: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Layout Modern</title>
+<link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">MyPortfolio</a>
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<header>
+<div class="container">
+<div class="header-content">
+<div class="logo">Port<span>Folio</span></div>
+ <div class="mobile-menu"></div>
+<nav>
+<ul>
+<li><a href="#home">Beranda</a></li>
+<li><a href="#about">Tentang</a></li>
+<li><a href="#project">Projek</a></li>
+<li><a href="#features">Fitur</a></li>
+<li><a href="#testimonials">Testimoni</a></li>
+<li><a href="#gallery">Galeri</a></li>
+<li><a href="#contact">Kontak</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</header>
 
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+<section class="hero" id="home">
+ <div class="container">
+<div class="hero-content">
+<h1>HAIII GLADYSSS DISINIII</h1>
+<p>Selamat datang di portofolio digital saya. Sebagai mahasiswa Sistem Informasi Universitas Pamulang, saya menyajikan website ini sebagai bagian dari penyelesaian Ujian Akhir Semester. Di dalamnya, saya merangkum berbagai proyek dan keterampilan yang telah saya asah untuk menjadi seorang profesional IT di masa depan</p>
+ <a href="#contact" class="btn">Hubungi Kami</a>
+</div>
+</section>
+
+<section id="about">
+<div class="about">
+<div class="about-content">
+<h2>Tentang Saya</h2>
+<p>Halo! Saya Gladys Aditya Ramadhan, mahasiswa Sistem Informasi di Universitas Pamulang. Fokus utama saya adalah memahami bagaimana teknologi dapat dioptimalkan untuk memecahkan masalah kompleks dan meningkatkan efisiensi operasional. Saya memiliki minat besar dalam Analisis Sistem, Manajemen Basis Data, dan Pengembangan Web.</p>
+<p>Melalui pendidikan di UNPAM, saya belajar untuk tidak hanya membangun sistem, tetapi juga memastikan bahwa teknologi yang diciptakan mampu memberikan nilai nyata bagi penggunanya.</p>
+    <a href="#contact" class="btn">Hubungi Saya</a>
+</div>
+<div class="about-image">
+<img src="potoku.jpeg" alt="Tentang Saya">
+</div>
+</div>
+</section>
+
+<section id="project">
+  <div class="container">
+    <div class="section-title">
+      <h2>Projek Saya</h2>
+      <p>Beberapa dokumentasi projek pernah saya kerjakan</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="projek1.png" alt="Proyek 1">
+      </div>
+      <div class="gallery-item">
+        <img src="projek2.png" alt="Proyek 2">
+      </div>
+      <div class="gallery-item">
+        <img src="projek3.png" alt="Proyek 3">
+      </div>
+      </div>
+  </div>
+</section>
+
+
+<main class="main-content">
+<div class="container">
+
+<section id="features">
+<div class="section-title">
+<h2>Fitur Unggulan</h2>
+<p>Saya menyediakan berbagai fitur terbaik untuk memenuhi kebutuhan website Anda</p>
+</div>
+<div class="features">
+<div class="feature-card">
+<div class="feature-icon"></div>
+<h3>Desain Responsif</h3>
+<p>Website akan tampil optimal di semua perangkat, baik desktop, tablet, maupun smartphone.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon"> </div>
+<h3>Performa Cepat</h3>
+<p>Dibangun dengan teknologi terbaru untuk memastikan kecepatan loading yang optimal.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon"></div>
+<h3>Keamanan Terjamin</h3>
+<p>Dilengkapi dengan sistem keamanan terbaik untuk melindungi data dan informasi Anda.</p>
+</div>
+</div>
+</section>
+
+
+<section id="testimonials">
+ <div class="container">
+ <div class="section-title">
+ <h2>Apa Kata Klien Saya</h2>
+ <p>Berikut adalah beberapa testimoni dari klien yang telah menggunakan jasa kami</p>
+</div>
+<div class="testimonial-grid">
+ <div class="testimonial-card">
+ <div class="testimonial-text">
+ "Website yang dibuat sangat responsif dan sesuai dengan kebutuhan bisnis kami. Proses pengerjaan cepat dan hasilnya memuaskan."
+ </div>
+ <div class="testimonial-author">
+ <div class="author-avatar">AA</div>
+ <div>
+ <h4>Azzura Agustina</h4>
+ <p>CEO TechSolution</p>
+ </div>
+ </div>
+ </div>
+ <div class="testimonial-card">
+ <div class="testimonial-text">
+ "Tim sangat profesional dan komunikatif. Hasil akhir website melebihi ekspektasi kami. Sangat direkomendasikan!"
+ </div>
+ <div class="testimonial-author">
+ <div class="author-avatar">RN</div>
+ <div>
+ <h4>Rizka Nur Juniati</h4>
+ <p>Pemilik Butik Hewah</p>
+ </div>
+ </div>
+ </div>
+ <div class="testimonial-card">
+ <div class="testimonial-text">
+ "Website yang dibuat membantu meningkatkan penjualan online kami secara signifikan. Desainnya modern dan user-friendly."
+ </div>
+ <div class="testimonial-author">
+ <div class="author-avatar">IK</div>
+ <div>
+ <h4>Isma Khairiyah</h4>
+ <p>Manager Toko Online</p>
+ </div>
+ </div>
+ </div>
+</div>
+</div>
+</section>
+
+
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-title">
+      <h2>Galeri Saya</h2>
+      <p>Dokumentasi video dan audio project serta aktivitas saya.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- Foto -->
+      <div class="gallery-item" data-category="photo">
+        <div class="gallery-card">
+          <img src="galeri5.jpeg" alt="Foto Galeri">
+          <div class="gallery-overlay"></div>
         </div>
-    </nav>
+      </div>
 
-    <!-- HERO -->
-    <section id="home" class="hero text-center">
-        <div class="container">
-            <img src="aku kecil.jpg" alt="Profile">
-            <h1 class="mt-4 fw-bold">Gladys Aditya Ramadhan</h1>
-            <p class="lead">Saya adalah mahasiswa Sistem Informasi yang berfokus pada Web Developer. Portfolio ini adalah representasi komprehensif dari perjalanan saya dalam menghasilkan beberapa projek yang mungkin saja berguna untuk orang lain.</p>
-            <a href="#portfolio" class="btn btn-primary btn-lg mt-3">Lihat Karya Saya</a>
+      <!-- Video -->
+      <div class="gallery-item" data-category="video">
+        <div class="gallery-card">
+          <div class="video-thumbnail">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/J7Te0aNZsdg?si=TpATuaqq5_kSD-xC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-5">Portfolio</h2>
-
-            <div class="row g-4">
-
-                <div class="col-md-4">
-                    <div class="portfolio-item">
-                        <img src="project 1.png" alt="Project 1">
-                        <h5 class="mt-3 fw-semibold">Project 1</h5>
-                        <p>Halaman pertama pada website saya.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="portfolio-item">
-                        <img src="project 2.png" alt="Project 2">
-                        <h5 class="mt-3 fw-semibold">Project 2</h5>
-                        <p>Project website.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="portfolio-item">
-                        <img src="project 3.png" alt="Project 3">
-                        <h5 class="mt-3 fw-semibold">Project 3</h5>
-                        <p>Project mockup saya</p>
-                    </div>
-                </div>
-
-            </div>
+      <!-- Audio -->
+      <div class="gallery-item" data-category="audio">
+        <div class="audio-card">
+          <div class="audio-icon">🎵</div>
+          <h4>Audio Sample</h4>
+          <audio controls>
+            <source src="Hindia - Satu Hari Lagi (Official Music Video) (320).mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung audio
+          </audio>
         </div>
-    </section>
-    <!-- CONTACT -->
-    <section id="contact" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-4">Contact Me</h2>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <form class="mx-auto" style="max-width: 600px;">
-                <div class="mb-3">
-                    <label class="form-label">Nama</label>
-                    <input type="text" class="form-control" placeholder="Masukkan nama...">
-                </div>
+<!-- Modal untuk Video -->
+<div id="videoModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" placeholder="Email kamu...">
-                </div>
+<script>
+// Gallery Filter Function (basic, usable if tabs are added later)
+function filterGallery(category, btn) {
+  const items = document.querySelectorAll('.gallery-item');
+  const tabs = document.querySelectorAll('.tab-btn');
+  tabs.forEach(t => t.classList.remove('active'));
+  if (btn && btn.classList) btn.classList.add('active');
+  items.forEach(item => {
+    if (category === 'all' || !category) return item.classList.remove('hidden');
+    if (item.getAttribute('data-category') === category) item.classList.remove('hidden');
+    else item.classList.add('hidden');
+  });
+}
 
-                <div class="mb-3">
-                    <label class="form-label">Pesan</label>
-                    <textarea class="form-control" rows="4" placeholder="Tulis pesan..."></textarea>
-                </div>
+function playVideo(videoUrl) {
+  const modal = document.getElementById('videoModal');
+  const frame = document.getElementById('videoFrame');
+  if (videoUrl && !/^https?:\/\//i.test(videoUrl)) videoUrl = 'https://' + videoUrl;
+  if (videoUrl.indexOf('autoplay=1') === -1) videoUrl += (videoUrl.indexOf('?') === -1) ? '?autoplay=1' : '&autoplay=1';
+  frame.src = videoUrl;
+  modal.style.display = 'block';
+}
 
-                <button class="btn btn-primary w-100">Kirim Pesan</button>
-            </form>
-        </div>
-    </section>
+function closeModal() {
+  const modal = document.getElementById('videoModal');
+  const frame = document.getElementById('videoFrame');
+  modal.style.display = 'none';
+  frame.src = '';
+}
 
-    <!-- FOOTER -->
-    <footer class="bg-primary text-white text-center py-3">
-        <p class="mb-0">&copy; 2025 Portfolio Gladys Aditya Ramadhan. All Rights Reserved.</p>
-    </footer>
+window.addEventListener('click', function(event) {
+  const modal = document.getElementById('videoModal');
+  if (event.target === modal) {
+    modal.style.display = 'none';
+    document.getElementById('videoFrame').src = '';
+  }
+});
 
-    <!-- Bootstrap JS -->
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+// Mobile menu toggle (if .mobile-menu exists)
+const mobileMenu = document.querySelector('.mobile-menu');
+const navUl = document.querySelector('nav ul');
+if (mobileMenu) mobileMenu.addEventListener('click', () => navUl.classList.toggle('show'));
+</script>
+
+<section id="contact">
+<div class="section-title">
+<h2>Hubungi Saya</h2>
+<p>Silahkan hubungi saya untuk konsultasi atau informasi lebih lanjut</p>
+</div>
+<div class="contact-form">
+ <form>
+<div class="form-group">
+<label for="name">Nama Lengkap</label>
+<input type="text" id="name" placeholder="Masukkan nama lengkap">
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" placeholder="Masukkan alamat email">
+</div>
+<div class="form-group">
+<label for="subject">Subjek</label>
+<input type="text" id="subject" placeholder="Masukkan subjek pesan">
+</div>
+<div class="form-group">
+<label for="message">Pesan</label>
+<textarea id="message" placeholder="Tulis pesan Anda di sini"></textarea>
+</div>
+<button type="submit" class="btn">Kirim Pesan</button>
+</form>
+</div>
+</section>
+
+</div>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-column">
+<h3>Tentang Saya</h3>
+<p>Halo! Saya Gladys Aditya Ramadhan, mahasiswa Sistem Informasi di Universitas Pamulang. Fokus utama saya adalah memahami bagaimana teknologi dapat dioptimalkan untuk memecahkan masalah kompleks dan meningkatkan efisiensi operasional.</p>
+ <div class="social-links">
+<a href="#">FB</a>
+<a href="#">TH</a>
+<a href="#">IG</a>
+</div>
+</div>
+<div class="footer-column">
+<h3>Link Cepat</h3>
+<ul>
+<li><a href="#home">Beranda</a></li>
+<li><a href="#features">Fitur</a></li>
+<li><a href="#about">Tentang</a></li>
+<li><a href="#testimonials">Testimoni</a></li>
+<li><a href="#contact">Kontak</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Layanan</h3>
+<ul>
+<li><a href="#">Web Development</a></li>
+<li><a href="#">UI/UX Design</a></li>
+<li><a href="#">Digital Marketing</a></li>
+<li><a href="#">SEO Optimization</a></li>
+<li><a href="#">Maintenance</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Kontak</h3>
+<ul>
+<li>Jl. Kodiklat No. 123, Tangsel</li>
+<li>https://gladys.kelas10sifp.my.id/</li>
+<li>+62 857 1984 9125</li>
+<li>Senin - Jumat: 9:00-17:00</li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>&copy; 2026 WebLayout. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
 
 </body>
 </html>
