@@ -9,23 +9,27 @@
 <body>
 
 <header>
-<div class="container">
-<div class="header-content">
-<div class="logo">Glad<span>dev</span></div>
- <div class="mobile-menu"></div>
-<nav>
-<ul>
-<li><a href="#home">Beranda</a></li>
-<li><a href="#about">Tentang</a></li>
-<li><a href="#project">Projek</a></li>
-<li><a href="#features">Fitur</a></li>
-<li><a href="#testimonials">Testimoni</a></li>
-<li><a href="#gallery">Galeri</a></li>
-<li><a href="#contact">Kontak</a></li>
-</ul>
-</nav>
-</div>
-</div>
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">Glad<span>dev</span></div>
+      <button class="mobile-menu" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#project">Projek</a></li>
+          <li><a href="#features">Fitur</a></li>
+          <li><a href="#testimonials">Testimoni</a></li>
+          <li><a href="#gallery">Galeri</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </header>
 
 <section class="hero" id="home">
@@ -57,17 +61,17 @@
       <h2>Projek Saya</h2>
       <p>Beberapa dokumentasi projek pernah saya kerjakan</p>
     </div>
-    <div class="gallery-grid">
+    <div class="gallery-grid project-grid">
       <div class="gallery-item">
-        <img src="projek1.png" alt="Proyek 1">
-      </div>
-      <div class="gallery-item">
-        <img src="projek2.png" alt="Proyek 2">
+        <img class="project-thumb" src="projek1.png" alt="Proyek 1">
       </div>
       <div class="gallery-item">
-        <img src="projek3.png" alt="Proyek 3">
+        <img class="project-thumb" src="projek2.png" alt="Proyek 2">
       </div>
+      <div class="gallery-item">
+        <img class="project-thumb" src="projek3.png" alt="Proyek 3">
       </div>
+    </div>
   </div>
 </section>
 
@@ -190,53 +194,108 @@
 </section>
 
 <!-- Modal untuk Video -->
-<div id="videoModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
+<div id="videoModal" class="modal video-modal">
+  <span class="close" id="videoClose">&times;</span>
   <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+<!-- Modal untuk Gambar Project -->
+<div id="imageModal" class="modal image-modal">
+  <button class="close" id="imageClose">&times;</button>
+  <button class="img-nav prev" id="imgPrev" aria-label="Previous">&#8249;</button>
+  <img id="imageModalImg" src="" alt="">
+  <button class="img-nav next" id="imgNext" aria-label="Next">&#8250;</button>
+  <div class="img-caption" id="imageCaption"></div>
+</div>
+
 <script>
-// Gallery Filter Function (basic, usable if tabs are added later)
-function filterGallery(category, btn) {
-  const items = document.querySelectorAll('.gallery-item');
-  const tabs = document.querySelectorAll('.tab-btn');
-  tabs.forEach(t => t.classList.remove('active'));
-  if (btn && btn.classList) btn.classList.add('active');
-  items.forEach(item => {
-    if (category === 'all' || !category) return item.classList.remove('hidden');
-    if (item.getAttribute('data-category') === category) item.classList.remove('hidden');
-    else item.classList.add('hidden');
-  });
-}
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu toggle
+  const mobileBtn = document.querySelector('.mobile-menu');
+  const navUl = document.querySelector('nav ul');
+  mobileBtn && mobileBtn.addEventListener('click', () => navUl.classList.toggle('show'));
 
-function playVideo(videoUrl) {
-  const modal = document.getElementById('videoModal');
-  const frame = document.getElementById('videoFrame');
-  if (videoUrl && !/^https?:\/\//i.test(videoUrl)) videoUrl = 'https://' + videoUrl;
-  if (videoUrl.indexOf('autoplay=1') === -1) videoUrl += (videoUrl.indexOf('?') === -1) ? '?autoplay=1' : '&autoplay=1';
-  frame.src = videoUrl;
-  modal.style.display = 'block';
-}
-
-function closeModal() {
-  const modal = document.getElementById('videoModal');
-  const frame = document.getElementById('videoFrame');
-  modal.style.display = 'none';
-  frame.src = '';
-}
-
-window.addEventListener('click', function(event) {
-  const modal = document.getElementById('videoModal');
-  if (event.target === modal) {
-    modal.style.display = 'none';
-    document.getElementById('videoFrame').src = '';
+  // Contact form validation and mailto send (fallback client-side)
+  function showError(el, msg) {
+    el.classList.add('error');
+    let err = el.parentElement.querySelector('.error-message');
+    if (!err) { err = document.createElement('div'); err.className = 'error-message'; el.parentElement.appendChild(err); }
+    err.textContent = msg;
   }
-});
+  function clearError(el) {
+    el.classList.remove('error');
+    const err = el.parentElement.querySelector('.error-message'); if (err) err.textContent = '';
+  }
 
-// Mobile menu toggle (if .mobile-menu exists)
-const mobileMenu = document.querySelector('.mobile-menu');
-const navUl = document.querySelector('nav ul');
-if (mobileMenu) mobileMenu.addEventListener('click', () => navUl.classList.toggle('show'));
+  const form = document.getElementById('contactForm') || document.querySelector('#contact .contact-form form');
+  if (form) {
+    form.setAttribute('id','contactForm');
+    form.setAttribute('novalidate','');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const subject = document.getElementById('subject');
+      const message = document.getElementById('message');
+      let ok = true;
+      [name, email, subject, message].forEach(clearError);
+
+      if (!name.value.trim()) { showError(name, 'Nama harus diisi'); ok = false; }
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim() || !emailRe.test(email.value.trim())) { showError(email, 'Email tidak valid'); ok = false; }
+      if (!subject.value.trim()) { showError(subject, 'Subjek harus diisi'); ok = false; }
+      if (!message.value.trim() || message.value.trim().length < 10) { showError(message, 'Pesan minimal 10 karakter'); ok = false; }
+      if (!ok) return;
+
+      const to = 'gladysadtyrmdhn15@gmail.com';
+      const mailSub = encodeURIComponent(subject.value.trim());
+      const bodyLines = [
+        'Nama: ' + name.value.trim(),
+        'Email: ' + email.value.trim(),
+        '',
+        message.value.trim()
+      ].join('\n');
+      const mailBody = encodeURIComponent(bodyLines);
+      const mailto = `mailto:${to}?subject=${mailSub}&body=${mailBody}`;
+      window.location.href = mailto;
+      form.reset();
+    });
+  }
+
+  // Image modal for project thumbnails
+  const thumbs = Array.from(document.querySelectorAll('.project-thumb'));
+  const imageModal = document.getElementById('imageModal');
+  const imageEl = document.getElementById('imageModalImg');
+  const captionEl = document.getElementById('imageCaption');
+  let currentIndex = -1;
+
+  function openImage(index) {
+    const t = thumbs[index];
+    if (!t) return;
+    imageEl.src = t.src;
+    imageEl.alt = t.alt || '';
+    captionEl.textContent = t.alt || '';
+    currentIndex = index;
+    imageModal.style.display = 'block';
+  }
+
+  function closeImage() { imageModal.style.display = 'none'; imageEl.src = ''; }
+  function showPrev() { if (currentIndex > 0) openImage(currentIndex - 1); }
+  function showNext() { if (currentIndex < thumbs.length - 1) openImage(currentIndex + 1); }
+
+  thumbs.forEach((t, i) => t.addEventListener('click', () => openImage(i)));
+  document.getElementById('imgPrev').addEventListener('click', showPrev);
+  document.getElementById('imgNext').addEventListener('click', showNext);
+  document.getElementById('imageClose').addEventListener('click', closeImage);
+  const videoModal = document.getElementById('videoModal');
+  document.getElementById('videoClose') && document.getElementById('videoClose').addEventListener('click', function(){ videoModal.style.display='none'; document.getElementById('videoFrame').src=''; });
+
+  window.addEventListener('click', function(ev){
+    if (ev.target === imageModal) closeImage();
+    if (ev.target === videoModal) { videoModal.style.display='none'; document.getElementById('videoFrame').src=''; }
+  });
+  window.addEventListener('keydown', function(ev){ if (ev.key === 'Escape') { closeImage(); if (videoModal) { videoModal.style.display='none'; document.getElementById('videoFrame').src=''; } } });
+});
 </script>
 
 <section id="contact">
