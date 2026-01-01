@@ -701,3 +701,64 @@ footer {
 @media (max-width: 768px) {
     .mobile-menu { display: inline-flex; }
 }
+
+.documents{
+    margin-top: 100px;
+    margin-bottom: 150px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.documents h2{
+    font-size: 2.5rem;
+    text-align: center;
+    width: 100%;
+    color: #af0b4d;
+}
+
+.document-container{
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+}
+.document-card{
+    border-radius: 10px;
+    box-shadow: #efe2e7;
+    text-align: center;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    padding: 50px;
+}
+
+.document-card p{
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+    color: #af0b4d;
+    margin-bottom: 50px;
+}
+
+.btn-pdf {
+    margin-top: 25px;
+padding: 10px 10px;
+background: linear-gradient(135deg, #f182a3, #f7a7bd);
+border: none;
+border-radius: 10px;
+display: inline-block;
+font-family: "Poppins", Arial, sans-serif;
+font-size: 15px;
+font-weight: 600;
+color: #fff;
+text-decoration: none;
+box-shadow: 0 8px 20px rgba(54, 38, 42, 0.4);
+transition: all 0.3s ease;
+cursor: pointer;
+}
